@@ -13,15 +13,15 @@
  * Domain Path:       /languages/
  */
 
- if( ! defined( 'ABSPATH' ) ) {
- 	exit;
- }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
-  * Load plugin text domain
-  *
-  * @since 1.0.0
-  */
+ * Load plugin text domain.
+ *
+ * @since 1.0.0
+ */
 function wp_config_urator_load_textdomain() {
 
 	load_plugin_textdomain( 'wp-config-urator', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
