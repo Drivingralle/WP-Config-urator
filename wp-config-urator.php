@@ -42,8 +42,18 @@ add_action( 'plugins_loaded', 'wp_config_urator_load_textdomain' );
  */
 function wp_config_urator_main_function( $pre_option, string $option_name, $default ) {
 
+	// Convert option name to name of CONSTANT
+	$option_name = str_replace( '-', '_', strtoupper( $option_name ) );
 
-	return $default;
+	// Try to get value
+	$value = constant( $option_name );
+	// Check value
+	if ( is_null( $value ) ) {
+		// Nothing found. Return input value.
+		return $pre_option;
+	}
+
+	// Return found value
+	return $value;
 }
-
 add_filter( 'pre_option', 'wp_config_urator_main_function', 999, 3 );
