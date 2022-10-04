@@ -26,3 +26,22 @@ function wp_config_urator_load_textdomain() {
 
 }
 add_action( 'plugins_loaded', 'wp_config_urator_load_textdomain' );
+
+/**
+ * @param mixed $pre_option The value to return instead of the option value. This differs
+ *                            from `$default`, which is used as the fallback value in the event
+ *                            the option doesn't exist elsewhere in get_option().
+ *                            Default false (to skip past the short-circuit).
+ * @param string $option Name of the option.
+ * @param mixed $default The fallback value to return if the option does not exist.
+ *                            Default false.
+ *
+ * @return mixed
+ */
+function wp_config_urator_main_function( $pre_option, string $option, $default ) {
+
+
+	return $default;
+}
+
+add_filter( 'pre_option', 'wp_config_urator_main_function', 999, 3 );
