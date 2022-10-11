@@ -40,7 +40,7 @@ add_action( 'plugins_loaded', 'wp_config_urator_load_textdomain' );
  *
  * @return mixed
  */
-function wp_config_urator_main_function( $pre_option, string $option_name, $default ) {
+function wp_config_urator_get_option( $pre_option, string $option_name, $default ) {
 
 	// Convert option name to name of CONSTANT
 	$option_name = str_replace( '-', '_', strtoupper( $option_name ) );
@@ -56,4 +56,4 @@ function wp_config_urator_main_function( $pre_option, string $option_name, $defa
 	// Return found value
 	return $value;
 }
-add_filter( 'pre_option', 'wp_config_urator_main_function', 999, 3 );
+add_filter( 'pre_option', 'wp_config_urator_get_option', 999, 3 );
