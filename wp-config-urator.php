@@ -43,17 +43,18 @@ add_action( 'plugins_loaded', 'wp_config_urator_load_textdomain' );
 function wp_config_urator_get_option( $pre_option, string $option_name, $default ) {
 
 	// Convert option name to name of CONSTANT
-	$option_name = str_replace( '-', '_', strtoupper( $option_name ) );
-
-	// Try to get value
-	$value = constant( $option_name );
-	// Check value
-	if ( is_null( $value ) ) {
-		// Nothing found. Return input value.
+	$constant_name = str_replace( '-', '_', strtoupper( $option_name ) );
+	// Check if constant is set to prevent PHP error
+	if ( ! defined( $constant_name ) ) {
+		// Not set. Return default value
 		return $pre_option;
 	}
 
-	// Return found value
-	return $value;
+	/*
+	 * Return found value.
+	 *
+	 * Can return value directly because check for existence of constant was done earlier.
+	 */
+	return constant( $constant_name );
 }
 add_filter( 'pre_option', 'wp_config_urator_get_option', 999, 3 );
