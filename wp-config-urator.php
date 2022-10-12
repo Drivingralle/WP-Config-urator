@@ -9,25 +9,11 @@
  * Author URI:        https://www.cross-media-cloud.de
  * License:           GNU General Public License v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       wp-config-urator
- * Domain Path:       /languages/
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-/**
- * Load plugin text domain.
- *
- * @since 1.0.0
- */
-function wp_config_urator_load_textdomain() {
-
-	load_plugin_textdomain( 'wp-config-urator', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
-
-}
-add_action( 'plugins_loaded', 'wp_config_urator_load_textdomain' );
 
 /**
  * @param mixed $pre_option   The value to return instead of the option value. This differs
