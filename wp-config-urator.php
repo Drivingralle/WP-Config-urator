@@ -7,8 +7,8 @@
  * Requires PHP:      7.0
  * Author:            Cross Media Cloud
  * Author URI:        https://www.cross-media-cloud.de
- * License:           GNU General Public License v2 or later
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+ * License:           GNU General Public License v3 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
